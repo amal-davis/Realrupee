@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties section</title>
+        <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+            @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+
+            body{
+    font-family: 'Montserrat', sans-serif;
+}
+        /* Custom Navbar Styles */
+        .navbar {
+            min-height: 100px; /* Set the navbar height */
+            padding-top: 25px; /* Set the top padding */
+            padding-bottom: 25px; /* Set the bottom padding */
+        }
+
+        .navbar-brand img {
+            padding: -30px; /* Remove padding */
+            display: inline-block; /* Make the logo and nav links inline */
+            vertical-align: middle; /* Align vertically in the middle */
+            margin-top: -40px;
+        }
+
+        .navbar-brand img {
+            max-height: 100px; /* Set the maximum height of the logo */
+            width: auto; /* Maintain the aspect ratio */
+            max-width: 100%; /* Ensure the logo fits within the navbar */
+        }
+
+        /* Custom Navbar Toggle Styles */
+        .navbar-toggle {
+            margin: 15px 20px 15px 0; /* Adjust the margin for the toggle button */
+        }
+
+        .navbar-toggle .icon-bar {
+            width: 30px; /* Adjust the width of the toggle button bars */
+        }
+
+        /* Center the Navbar Links */
+        .navbar-nav {
+            float: none;
+            margin: 0 auto;
+            display: table;
+            table-layout: fixed;
+            text-align: center;
+            vertical-align: middle; /* Align vertically in the middle */
+        }
+
+        .navbar-nav > li {
+            float: none;
+            display: inline-block;
+            vertical-align: middle; /* Align vertically in the middle */
+        }
+
+        /* Responsive styles */
+        @media (max-width: 767px) {
+            .navbar-nav {
+                display: block;
+                text-align: left;
+            }
+
+            .navbar-nav > li {
+                display: block;
+                float: none;
+            }
+        }
+
+.whatsapp-icon {
+position: fixed;
+bottom: 20px; /* Adjust as needed */
+right: 20px; /* Adjust as needed */
+z-index: 9999; /* Ensure it appears above other content */
+}
+
+.districts {
+overflow: hidden;
+}
+
+.districts-inner {
+display: flex;
+gap: 10px;
+animation: scroll 20s linear infinite;
+width: max-content; /* Set width to fit all districts */
+}
+
+.district {
+padding: 10px 20px;
+background-color: #006B00;
+color: #fff;
+border-radius: 5px;
+font-size: 18px;
+font-weight: bold;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.district:hover {
+background-color: #004F00;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+.districts-inner {
+animation: scroll 20s linear infinite;
+}
+}
+
+@media screen and (max-width: 576px) {
+.districts-inner {
+animation: scroll 20s linear infinite;
+}
+}
+
+@keyframes scroll {
+0% {
+transform: translateX(0);
+}
+100% {
+transform: translateX(calc(-100% + (100vw - 50%)));
+}
+}
+.image-container {
+position: relative;
+overflow: hidden;
+}
+
+.image-container img {
+display: block;
+width: 100%;
+height: auto;
+}
+
+.badge {
+position: absolute;
+top: 10px; /* Adjust top position as needed */
+left: 10px; /* Adjust left position as needed */
+}
+.property-card {
+border: 1px solid #e0e0e0;
+border-radius: 10px;
+overflow: hidden;
+transition: transform 0.3s ease-in-out;
+}
+
+.property-card:hover {
+transform: scale(1.05);
+}
+
+/* .image-container {
+position: relative;
+overflow: hidden;
+height: 200px;
+} */
+
+/* .image-container img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+} */
+
+.card-body {
+padding: 1rem;
+}
+
+.btn-custom {
+background-color: #bd4419;
+color: #fff;
+border-radius: 25px;
+padding: 8px 20px;
+font-size: 16px;
+transition: background-color 0.3s ease-in-out;
+}
+
+.btn-custom:hover {
+background-color: #a9330c;
+color: #fff;
+}
+</style>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="{% static 'images/logo.png.png' %}" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="{% url 'property' %}">Property</a></li>
+                    <li> <a href="{% url 'about_us' %}">About Us</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                    <li> <a href="{% url 'test' %}">Testimonals</a></li>
+                    <li><a class="nav-link" href="tel:+1234567890"><i class="fas fa-phone-alt"></i>9747858495</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+        </div><!-- /.container-fluid -->
+    </nav>
+    <br><br><br><br>
+    <div class="container">
+        <h1 style="text-align: center;">Search Results</h1><br>
+        <div class="row">
+            {% for prop in properties %}
+            <div class="col-md-4">
+                <div class="card position-relative property-card">
+                    <div class="image-container">
+                        {% if prop.images.all %}
+                        <img src="{{ prop.images.all.first.image.url }}" class="card-img-top" alt="{{ prop.heading }}">
+                        {% else %}
+                        <span class="badge badge-primary" style="background-color: #19e019;">No Image</span>
+                        {% endif %}
+                        {% if prop.status == 'Sold' %}
+                        <span class="badge badge-primary" style="background-color: red;">{{ prop.status }}</span>
+                        {% else %}
+                        <span class="badge badge-primary" style="background-color: green;">{{ prop.status }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h3>{{ prop.heading }}</h3>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i> {{ prop.locality.name }}
+                        </div>
+                        <p class="card-text" style="color: darkred;">ID: {{ prop.property_id }}</p>
+                        <a href="{% url 'details_property' property_id=prop.id %}" class="btn btn-custom">View More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>

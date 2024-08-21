@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Swiper Image</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+</head>
+<body>
+    
+
+    <div class="container" style="margin-top: 40px;">
+        <div class="heading">
+            <h1 class="text-center">Add Images</h1>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 40px;">
+        <form method="post" action="{% url 'add_images' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+        
+            <!-- Input for Image -->
+
+            <label for="image">Image:</label>
+            <input type="file" class="form-control" name="image" accept="image/*"  >
+            <br>
+           
+    
+    
+            
+    
+        
+            <!-- Input for Offline Class URL -->
+    
+            <!-- Submit Button -->
+            <input type="submit" class="btn" value="Submit" style="color:#fff ; background-color: #bd4419;">
+        </form>
+    </div>
+
+    <div class="container" style="margin-top: 40px;">
+        <table class="table">
+            <thead class="thead">
+        <tr>
+            <th>*</th>
+    
+            <th>Image</th>
+            
+            <th>Action</th>
+        </tr>
+        
+        
+            </thead>
+            <tbody class="tbody">
+                
+                <tr>
+                    {% for c in add_images %}
+                    <td>{{ c.id }}</td>
+                    
+     
+                    <td>
+                        {% if c.image %}
+                        
+                        <img src="{{ c.image.url }}" alt="thumb" style="width: 100px; height: 100px;">
+                        {% else %}
+                       <span>No image</span>
+                        {% endif %}
+                    </td>
+                    
+                    
+                    <td>
+                        <a href="" class="btn btn-danger">Delete</a>
+                       
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="mt-5 text-center">
+            <a  style="color: #bd4419;" href="">Go Back</a>
+        </div>
+        </div>
+
+
+
+
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>

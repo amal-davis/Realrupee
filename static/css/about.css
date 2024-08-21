@@ -1,0 +1,82 @@
+.about-us {
+    padding: 50px 0;
+}
+
+.about-us .image img {
+    width: 100%;
+    height: auto;
+}
+
+.about-us .content {
+    padding-left: 20px;
+}
+
+.about-us h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-us h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.about-us p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+.contact-section {
+    background-color: #f2f2f2; /* Light background color */
+    padding: 50px 0; /* Adjust padding as needed */
+}
+
+
+
+.contact-section p {
+    font-size: 14px;
+    color: #575252; /* Text color */
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.contact-info i {
+    margin-right: 40px;
+}
+
+.contact-info span {
+    margin-right: 80px;
+    font-size: 16px;
+    color: #333; /* Text color */
+}
+
+.btn-primary {
+    background-color: #003300; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 12px;
+    width: 150px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Button background color on hover */
+}
+.contact-info i {
+    display: block; /* Ensure the icon is on its own line */
+    text-align: center; /* Center the icon */
+}
+
+.contact-info p,
+.contact-info span {
+    display: block; /* Ensure each text element is on its own line */
+    text-align: center; /* Center the text */
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+</head>
+<style>
+     @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase
+}
+
+.navbar .nav {
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.navbar-inverse {
+    background-color: #057405
+}
+
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>li>a:hover,
+.navbar-inverse .navbar-nav>li>a:focus {
+    background-color: #044e04
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-nav>.open>a:focus {
+    background-color: #003300
+}
+
+.dropdown-menu {
+    background-color: #006B00
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
+    background-color: #002200
+}
+
+.navbar-inverse {
+    background-image: none;
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
+    background-image: none;
+}
+
+.navbar-inverse {
+    border-color: #003300
+}
+
+.navbar-inverse .navbar-brand {
+    color: #FFFFFF
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: #FFCC00
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #FFFFFF
+}
+
+.navbar-inverse .navbar-nav>li>a:hover,
+.navbar-inverse .navbar-nav>li>a:focus {
+    color: #FFCC00
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-nav>.open>a:focus {
+    color: #FFCC00
+}
+
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>.active>a:focus {
+    color: #FFCC00
+}
+
+.dropdown-menu>li>a {
+    color: #FFFFFF
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
+    color: #FFCC00
+}
+
+.navbar-inverse .navbar-nav>.dropdown>a .caret {
+    border-top-color: #FFFFFF
+}
+
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+    border-top-color: #FFFFFF
+}
+
+.navbar-inverse .navbar-nav>.dropdown>a .caret {
+    border-bottom-color: #FFFFFF
+}
+
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+    border-bottom-color: #FFFFFF
+}
+
+</style>
+<body>
+        
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="./" class="navbar-brand">Real Rupees</a>
+            </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse" id="bs-example-navbar-collapse-1" role="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'property' %}">Property</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about_us' %}">About Us</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact_us' %}">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'test' %}">Testimonals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tel:+1234567890"><i class="fas fa-phone-alt"></i>9747858495</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <br><br><br><br><br>
+
+    <div class="container">
+        <form method="post" action="{% url 'edit_blog' content.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <!-- Display existing values -->
+            <label for="image">Image:</label>
+            {% if content.image %}
+            <img src="{{ content.image.url }}" alt="thumb" style="width: 100px; height: 100px;">
+            {% else %}
+            <span>No image</span>
+            {% endif %}
+            <input type="file" name="image" class="form-control" accept="image/*">
+            <br>
+            
+            <label for="heading">Heading:</label>
+            <input type="text" name="heading" class="form-control" value="{{ content.heading }}" required>
+            <br>
+            
+            <label for="paragraph">Paragraph:</label>
+            <textarea class="form-control" id="editor" name="paragraph" required>{{ content.paragraph }}</textarea>
+            <br>
+          
+            
+            <!-- Submit Button -->
+            <input type="submit" class="btn" style="color: #fff; background-color: #bd4419;" value="Save Changes">
+        </form>
+        
+    </div>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        CKEDITOR.replace('editor');
+        document.getElementById('editor').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            // Prevent the default behavior (line break) and insert a newline character
+            e.preventDefault();
+            const textarea = document.getElementById('editor');
+            const cursorPos = textarea.selectionStart;
+            const textBefore = textarea.value.substring(0, cursorPos);
+            const textAfter = textarea.value.substring(cursorPos);
+
+            textarea.value = textBefore + '\n' + textAfter;
+
+            // Move the cursor to the next line
+            textarea.setSelectionRange(cursorPos + 1, cursorPos + 1);
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.home,name='home'),
+    path('contact_us',views.contact_us,name='contact_us'),
+    path('about_us',views.about_us,name='about_us'),
+    path('test',views.test,name='test'),
+    path('property',views.property,name='property'),
+    path('property/<int:property_id>/', views.details_property, name='details_property'),
+    path('blog_page',views.blog_page,name='blog_page'),
+    path('blog_detail',views.blog_detail,name='blog_detail'),
+    path('admin',views.admin,name='admin'),
+    path('admin_login',views.admin_login,name='admin_login'),
+    path('login',views.login,name='login'),
+    path('contact',views.contact,name='contact'),
+    path('contact_page',views.contact_page,name='contact_page'),
+    path('delete_contacts/<int:opening_id>/',views.delete_contacts,name='delete_contacts'),
+    path('add_property',views.add_property,name='add_property'),
+    path('delete_property/<int:opening_id>/',views.delete_property,name='delete_property'),
+    path('edit_property/<int:content_id>/',views.edit_property,name='edit_property'),
+    path('add_dist_property',views.add_dist_property,name='add_dist_property'),
+    path('delete_dist_property/<int:opening_id>/',views.delete_dist_property,name='delete_dist_property'),
+    path('edit_disT_property/<int:content_id>/',views.edit_dist_property,name='edit_dist_property'),
+    path('blog_content',views.blog_content,name='blog_content'),
+    path('add_blog',views.add_blog,name='add_blog'),
+    path('blog_detail/<int:blog_id>/',views.blog_detail,name='blog_detail'),
+    path('blog',views.blog,name='blog'),
+    path('edit_blog/<int:blog_id>/',views.edit_blog,name='edit_blog'),
+    path('delete_dist_blogs/<int:opening_id>/',views.delete_dist_blogs,name='delete_dist_blogs'),
+    path('add_state',views.add_state,name='add_state'),
+    path('add_district',views.add_district,name='add_district'),
+    path('add_locality',views.add_locality,name='add_locality'),
+    path('district_page/<int:district_id>/', views.district_page, name='district_page'),
+    path('property/search/', views.property_search, name='property_search'),
+    path('property_id_search',views.property_id_search,name='property_id_search'),
+    path('add_testimonials',views.add_testimonials,name='add_testimonials'),
+    path('delete_testimonials/<int:opening_id>/',views.delete_testimonials,name='delete_testimonials'),
+
+]
+

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+
+    <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <title>Home </title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Custom Navbar Styles */
+.navbar {
+    position: fixed; /* Fix the navbar at the top of the page */
+    top: 0; /* Set the top position to 0 */
+    left: 0; /* Set the left position to 0 */
+    width: 100%; /* Set the width to 100% */
+    min-height: 100px; /* Set the navbar height */
+    padding-top: 25px; /* Set the top padding */
+    padding-bottom: 25px; /* Set the bottom padding */
+    z-index: 1000; /* Set a high z-index to ensure the navbar is above other elements */
+}
+
+.navbar-brand img {
+    padding: -30px; /* Remove padding */
+    display: inline-block; /* Make the logo and nav links inline */
+    vertical-align: middle; /* Align vertically in the middle */
+    margin-top: -40px;
+}
+
+.navbar-brand img {
+    max-height: 100px; /* Set the maximum height of the logo */
+    width: auto; /* Maintain the aspect ratio */
+    max-width: 100%; /* Ensure the logo fits within the navbar */
+}
+
+/* Custom Navbar Toggle Styles */
+.navbar-toggle {
+    margin: 15px 20px 15px 0; /* Adjust the margin for the toggle button */
+}
+
+.navbar-toggle .icon-bar {
+    width: 30px; /* Adjust the width of the toggle button bars */
+}
+
+/* Center the Navbar Links */
+.navbar-nav {
+    float: none;
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+    vertical-align: middle; /* Align vertically in the middle */
+}
+
+.navbar-nav > li {
+    float: none;
+    display: inline-block;
+    vertical-align: middle; /* Align vertically in the middle */
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .navbar-nav {
+        display: block;
+        text-align: left;
+    }
+
+    .navbar-nav > li {
+        display: block;
+        float: none;
+    }
+}
+
+
+
+
+        .swiper-container {
+                /* width: 100%; */
+                 /* Adjust height as needed */
+
+
+
+
+
+                 
+                position: relative;
+                overflow: hidden; /* Hide the scrollbar */
+            }
+    
+            /* Style for swiper slide images */
+            .swiper-slide img {
+                max-width: 100%;
+                height: auto;
+            }
+    
+            /* Style for swiper navigation buttons */
+            .swiper-button-prev,
+            .swiper-button-next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 20px;
+                height: 20px;
+                color: white;
+                font-size: 10px;
+                border-radius: 50%;
+                text-align: center;
+               
+                cursor: pointer;
+                z-index: 10;
+            }
+    
+            /* Position navigation buttons for larger screens */
+            @media (min-width: 768px) {
+                .swiper-button-prev,
+                .swiper-button-next {
+                    width: 60px;
+                    height: 60px;
+                    font-size: 30px;
+                }
+                .swiper-button-prev {
+                    left: 20px;
+                }
+                .swiper-button-next {
+                    right: 20px;
+                }
+            }
+    
+            /* Position navigation buttons for smaller screens */
+            @media (max-width: 767.98px) {
+                .swiper-button-prev,
+                .swiper-button-next {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 20px;
+                }
+                .swiper-button-prev {
+                    left: 10px;
+                }
+                .swiper-button-next {
+                    right: 10px;
+                }
+            }
+    
+    
+            .card {
+    border-radius: 1px;
+    transition: box-shadow 0.3s;
+    margin-bottom: 20px;
+    border: 1px solid #474646;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-img-top {
+    border: 1px solid #ccc;
+    border-radius: 1px;
+}
+
+.btn-custom {
+    background-color: #003300;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-custom:hover {
+    background-color: #003300;
+    color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 10px; /* Adjust margin for smaller screens */
+    }
+    
+    .card-body {
+        padding: 5px; /* Adjust padding for smaller screens */
+    }
+    
+    .btn-custom {
+        padding: 8px 16px; /* Adjust button padding for smaller screens */
+    }
+}
+
+
+.search-form {
+    background-color: #212121;
+    padding: 20px;
+    border-radius: 2px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+/* Style for dropdowns */
+.custom-select {
+    width: 100%; /* Adjust width to fill available space */
+    max-width: 150px; /* Set maximum width for dropdown */
+    margin-right: 10px; /* Add space between dropdowns */
+}
+
+/* Style for search button */
+.btn-dark {
+    background-color: #22c222; /* Orange background color */
+    border-color: #045404; /* Orange border color */
+    color: white; /* White text color */
+}
+
+/* Hover effect for search button */
+.btn-dark:hover {
+    background-color: #f57c00; /* Darker orange on hover */
+    border-color: #f57c00; /* Darker orange border on hover */
+}
+
+/* Adjust form layout on smaller screens */
+@media (max-width: 768px) {
+    .custom-select {
+        width: 100%; /* Make dropdowns full width */
+        max-width: none; /* Remove maximum width */
+        margin-right: 0; /* Remove margin between dropdowns */
+        margin-bottom: 10px; /* Add space between dropdowns */
+    }
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.badge {
+    position: absolute;
+    top: 10px; /* Adjust top position as needed */
+    left: 10px; /* Adjust left position as needed */
+}
+.card-date {
+    margin-top: 10px; /* Adjust this value to increase or decrease the gap */
+    display: block;
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse fixed-top">
+        <div class="container-fluid">
+    
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="{% static 'images/logo.png.png' %}" alt="Logo">
+                </a>
+            </div>
+    
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{% url 'property' %}">Property</a></li>
+                    <li> <a href="{% url 'about_us' %}">About Us</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                    <li> <a href="{% url 'test' %}">Testimonals</a></li>
+                    <li><a class="nav-link" href="tel:+1234567890"><i class="fas fa-phone-alt"></i>9747858495</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+    
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="whatsapp-icon">
+        <a href="javascript:void(0);" id="whatsapp-button">
+            <img src="{% static 'images/WhatsApp_icon.png.webp' %}" alt="whatsapp_logo"
+                style="width: 70px; height: 70px;">
+        </a>
+    </div>
+       <div class="container-fluid" style="margin-top: 120px;">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="{% static 'images/img1.png' %}" alt="Slide 1" class="img-fluid"></div>
+                <div class="swiper-slide"><img src="{% static 'images/img1.png' %}" alt="Slide 2"  class="img-fluid"></div>
+                <div class="swiper-slide"><img src="{% static 'images/img1.png' %}" alt="Slide 3"  class="img-fluid"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+       </div>
+
+    
+   
+
+    
+  
+    
+    <!-- Search form container -->
+    <div class="container-fluid" style="margin-top: 40px;">
+        <div class="search-form-container">
+            <div class="search-form">
+                <form class="form-inline" role="form" method="get" action="{% url 'property_search' %}">
+                    <div class="form-group">
+                        <select name="property_type" class="form-control custom-select">
+                            <option value="">Type</option>
+                            {% for type in unique_property_types %}
+                            <option value="{{ type }}">{{ type }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="state" id="id_state" class="form-control custom-select">
+                            <option value="">State</option>
+                            {% for state in unique_states %}
+                            <option value="{{ state.id }}">{{ state.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="district" id="id_district" class="form-control custom-select">
+                            <option value="">District</option>
+                            {% for district in unique_districts %}
+                            <option value="{{ district.id }}" data-state="{{ district.state.id }}">{{ district.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="locality" id="id_locality" class="form-control custom-select">
+                            <option value="">Locality</option>
+                            {% for locality in unique_localities %}
+                            <option value="{{ locality.id }}" data-district="{{ locality.district.id }}">{{ locality.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="price" class="form-control custom-select">
+                            <option value="">Price</option>
+                            {% for price in unique_prices %}
+                            <option value="{{ price }}">{{ price }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-dark" style="margin-bottom: 20px;">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid">
+        <div class="search-form-container">
+            <div class="search-form">
+                <form class="form-inline" role="form" method="get" action="{% url 'property_id_search' %}">
+                    <div class="form-group">
+                        <input type="text" name="property_id" class="form-control" placeholder="Search by ID">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-dark" style="margin-bottom: 20px;">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+<br>
+<div class="container">
+    <h1 style="text-align: center;">Our Top Properties</h1><br>
+    <div class="row">
+        {% for prop in properties %}
+        <div class="col-md-4">
+            <div class="card position-relative property-card">
+                <div class="image-container">
+                    {% if prop.images.all %}
+                    <img src="{{ prop.images.all.first.image.url }}" class="card-img-top" alt="{{ prop.heading }}">
+                    {% else %}
+                    <span class="badge badge-primary" style="background-color: #19e019;">No Image</span>
+                    {% endif %}
+                    {% if prop.status == 'Sold' %}
+                    <span class="badge badge-primary" style="background-color: red;">{{ prop.status }}</span>
+                    {% else %}
+                    <span class="badge badge-primary" style="background-color: green;">{{ prop.status }}</span>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <h3>{{ prop.heading }}</h3>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i> {{ prop.district.name }}
+                    </div>
+                    <p class="card-text" style="color: darkred;">ID: {{ prop.property_id }}</p>
+                    <a href="{% url 'details_property' property_id=prop.id %}" class="btn btn-custom">View More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div><br>
+  <section class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>For more information about our services, <span style="color: #19e019;">get in touch</span>
+                    with our expert consultants</h1><br>
+                <p style="color: #3a3838;">Our friendly team is on hand to provide advice, guidance and support throughout every step of your journey in finding and buying a new house. Contact us today for more information about how we can help you!</p>
+            </div>
+            <br><br><br><br><div class="col-md-6">
+                <div class="contact-info" style="display: flex; flex-direction: column; align-items: center;">
+                    <div style="display: flex; align-items: center; margin-bottom: 20px; margin-left: 40px;">
+                        <i class="fas fa-phone" style="color: #19e019; font-size: 44px; "></i>
+                       
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <p style="margin-right: 15px;">Call for help now!</p>
+                        <span style="font-size: 22px; color: #06020e; margin-bottom: 10px; margin-right: 15px;">+919747858495</span>
+                        <a href="{% url 'contact_us' %}" class="btn" style="background-color: #212121; color: #fff;">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+</section>
+<section class="container-fluid" style="background-color: lemonchiffon;">
+    <div class="container" >
+        <h2 class="text-center">Explore</h2><br>
+        <div class="row equal-height-cards">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        
+                        <img src="{% static 'images/buy.png' %}" alt="Logo" class="logo">
+                        <div>
+                            <h3 class="card-title">Buy a new Home</h3>
+                            <p>Find your place with an immersive photo experience and more listings, including things you might not find anywhere else </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- Repeat the above structure for the other two cards -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{% static 'images/sell.png' %}" alt="Logo" class="logo">
+                        <h3 class="card-title">Sell a Home</h3>
+                        <p class="card-text">No matter whichever way you choose to sell your home, we can help you navigate a successful sale.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{% static 'images/rent.png' %}" alt="Logo" class="logo">
+                        <h3 class="card-title">Rent a Home</h3>
+                        <p class="card-text">We are creating a seamless online experience - from the largest rental chain to shopping, applying and paying rent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</section>
+<section class="blog-section">
+    <h1 style="text-align: center;">Latest Blog</h1>
+    <div class="container" style="margin-top: 40px;">        
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-md-4">
+                <div class="cards">
+                    <div class="cards-body">
+                        {% if blog.image %}
+                          <img src="{{ blog.image.url }}" alt="{{ blog.heading }}" class="card-img">
+                         {% else %}
+                         <p>No Image</p>
+                         {% endif %}
+                        <span class="card-date" style="margin-top: 30px;"><i class="fas fa-calendar-alt"></i> {{ blog.date }}</span>
+                        <h3 class="card-title">{{ blog.heading }}</h3>
+                        <p class="card-text">{{ blog.paragraph|safe|truncatechars:100 }}</p> <!-- Displaying first 100 characters of the paragraph -->
+                        <a href="{% url 'blog_detail' blog.id %}" class="btn" style="background-color: #212121; color: #fff;">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="{% url 'blog' %}" class="btn btn-primary btn-lg">View More</a>
+            </div>
+        </div> -->
+    </div>
+</section>
+<section class="footer">
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+               </div>
+            </div>
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                          <br><br>  <div class="footer-logo">
+                                <a href=""><img src="{% static 'images/logo.png.png' %}" class="img-fluid" alt="logo"></a>
+                            </div>
+                            <br><br><br>
+                        </div>
+                    </div> 
+     
+                         <br>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Useful Links</h3>
+                            </div>
+                            <ul>
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="{% url 'about_us' %}">about Us</a></li>
+                                <li><a href="{% url 'property' %}">Property</a></li>
+                                <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                                <li><a href="{% url 'test' %}">Testimonals</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div><br>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        
+                            <div class="single-cta">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="cta-text">
+                                    <h4>Find us</h4>
+                                    <span>Chevoor, Thrissur Dt.Pin: 680 027</span>
+                                </div>
+                            </div>
+                       <br>
+                        
+                        </div>
+                        <div class="single-cta">
+                            <i class="fas fa-phone"></i>
+                            <div class="cta-text">
+                                <h4>Call us</h4>
+                                <span> 9747858495</span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="single-cta">
+                            <i class="far fa-envelope-open"></i>
+                            <div class="cta-text">
+                                <h4>Mail us</h4>
+                                <span> mail@realrupees.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 text-center text-lg-left">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2024, Devolped By <a href="https://softverses.com/" target="_blank">Softverses</a></p>
+                        </div>
+                    </div>
+                    <!-- <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy</a></li>
+                                <li><a href="#">Policy</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      
+      document.addEventListener('DOMContentLoaded', function() {
+    const stateDropdown = document.getElementById('id_state');
+    const districtDropdown = document.getElementById('id_district');
+    const localityDropdown = document.getElementById('id_locality');
+    
+    function filterOptions(dropdown, key, value) {
+        for (let option of dropdown.options) {
+            if (option.getAttribute(key) === value || value === '') {
+                option.style.display = '';
+            } else {
+                option.style.display = 'none';
+            }
+        }
+    }
+
+    stateDropdown.addEventListener('change', function() {
+        const selectedState = this.value;
+        filterOptions(districtDropdown, 'data-state', selectedState);
+        filterOptions(localityDropdown, 'data-district', '');
+    });
+    
+    districtDropdown.addEventListener('change', function() {
+        const selectedDistrict = this.value;
+        filterOptions(localityDropdown, 'data-district', selectedDistrict);
+    });
+    
+    // Initialize district and locality options based on the initial selected state
+    const initialSelectedState = stateDropdown.value;
+    filterOptions(districtDropdown, 'data-state', initialSelectedState);
+    filterOptions(localityDropdown, 'data-district', '');
+});
+
+
+
+      document.getElementById("whatsapp-button").addEventListener("click", function () {
+            var phoneNumber = "+91 9747858495";
+            var message = "Hello, I'd like to get in touch with you!";
+            var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+            window.open(url, "_blank");
+        });
+
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+      </body>
+      </html>

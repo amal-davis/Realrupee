@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+
+    <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <title>Testimonals </title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+</head>
+
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+        body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Custom Navbar Styles */
+.navbar {
+    position: fixed; /* Fix the navbar at the top of the page */
+    top: 0; /* Set the top position to 0 */
+    left: 0; /* Set the left position to 0 */
+    width: 100%; /* Set the width to 100% */
+    min-height: 100px; /* Set the navbar height */
+    padding-top: 25px; /* Set the top padding */
+    padding-bottom: 25px; /* Set the bottom padding */
+    z-index: 1000; /* Set a high z-index to ensure the navbar is above other elements */
+}
+
+.navbar-brand img {
+    padding: -30px; /* Remove padding */
+    display: inline-block; /* Make the logo and nav links inline */
+    vertical-align: middle; /* Align vertically in the middle */
+    margin-top: -40px;
+}
+
+.navbar-brand img {
+    max-height: 100px; /* Set the maximum height of the logo */
+    width: auto; /* Maintain the aspect ratio */
+    max-width: 100%; /* Ensure the logo fits within the navbar */
+}
+
+/* Custom Navbar Toggle Styles */
+.navbar-toggle {
+    margin: 15px 20px 15px 0; /* Adjust the margin for the toggle button */
+}
+
+.navbar-toggle .icon-bar {
+    width: 30px; /* Adjust the width of the toggle button bars */
+}
+
+/* Center the Navbar Links */
+.navbar-nav {
+    float: none;
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+    vertical-align: middle; /* Align vertically in the middle */
+}
+
+.navbar-nav > li {
+    float: none;
+    display: inline-block;
+    vertical-align: middle; /* Align vertically in the middle */
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .navbar-nav {
+        display: block;
+        text-align: left;
+    }
+
+    .navbar-nav > li {
+        display: block;
+        float: none;
+    }
+}
+        .whatsapp-icon {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    z-index: 9999; /* Ensure it appears above other content */
+}
+</style>
+<body>
+    <nav class="navbar navbar-inverse fixed-top">
+        <div class="container-fluid">
+    
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="{% static 'images/logo.png.png' %}" alt="Logo">
+                </a>
+            </div>
+    
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{% url 'property' %}">Property</a></li>
+                    <li> <a href="{% url 'about_us' %}">About Us</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                    <li> <a href="{% url 'test' %}">Testimonals</a></li>
+                    <li><a class="nav-link" href="tel:+1234567890"><i class="fas fa-phone-alt"></i>9747858495</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+    
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="whatsapp-icon">
+        <a href="javascript:void(0);" id="whatsapp-button">
+            <img src="{% static 'images/WhatsApp_icon.png.webp' %}" alt="whatsapp_logo"
+                style="width: 70px; height: 70px;">
+        </a>
+    </div><br><br>
+    <body><section id="testimonials" style="margin-top: 90px;">
+        <!--heading--->
+        <div class="testimonial-heading">
+            <span>Comments</span>
+            <h4>Clients Says</h4>
+        </div>
+        <!--testimonials-box-container------>
+        <div class="testimonial-box-container">
+            <!--BOX-1-------------->
+            <div class="testimonial-box-container">
+                <!--BOX-1-------------->
+                {% for testimonial in testimonials %}
+                <div class="testimonial-box">
+                    <!--top------------------------->
+                    <div class="box-top">
+                        <!--profile----->
+                        <div class="profile">
+                            <!--img---->
+                            <div class="profile-img">
+                                
+                                
+                                
+                                <img src="{% static 'images/default_image.jpg' %}" alt="Default Profile" />
+                                
+                            </div>
+                            <!--name-and-username-->
+                            <div class="name-user">
+                                <strong>{{ testimonial.name }}</strong>
+                                
+                            </div>
+                        </div>
+                        <!--reviews------>
+                        <div class="reviews">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i><!--Empty star-->
+                        </div>
+                    </div>
+                    <!--Comments---------------------------------------->
+                    <div class="client-comment">
+                        <p style="font-size: 20px;">"{{ testimonial.review }}"</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+      </section>
+
+<br><br><br>
+
+      <section class="footer">
+        <footer class="footer-section">
+            <div class="container">
+                <div class="footer-cta pt-5 pb-5">
+                    <div class="row">
+                   </div>
+                </div>
+                <div class="footer-content pt-5 pb-5">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 mb-50">
+                            <div class="footer-widget">
+                              <br><br>  <div class="footer-logo">
+                                    <a href=""><img src="{% static 'images/logo.png.png' %}" class="img-fluid" alt="logo"></a>
+                                </div>
+                                <br><br><br>
+                            </div>
+                        </div> 
+         
+                             <br>
+                        <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                            <div class="footer-widget">
+                                <div class="footer-widget-heading">
+                                    <h3>Useful Links</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="{% url 'home' %}">Home</a></li>
+                                    <li><a href="{% url 'about_us' %}">about Us</a></li>
+                                    <li><a href="{% url 'property' %}">Property</a></li>
+                                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                                    <li><a href="{% url 'test' %}">Testimonals</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div><br>
+                        <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                            
+                                <div class="single-cta">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div class="cta-text">
+                                        <h4>Find us</h4>
+                                        <span>Chevoor, Thrissur Dt.Pin: 680 027</span>
+                                    </div>
+                                </div>
+                           <br>
+                            
+                            </div>
+                            <div class="single-cta">
+                                <i class="fas fa-phone"></i>
+                                <div class="cta-text">
+                                    <h4>Call us</h4>
+                                    <span> 9747858495</span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="single-cta">
+                                <i class="far fa-envelope-open"></i>
+                                <div class="cta-text">
+                                    <h4>Mail us</h4>
+                                    <span> mail@realrupees.com</span>
+                                </div>
+                            </div>
+                        </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 text-center text-lg-left">
+                            <div class="copyright-text">
+                                <p>Copyright &copy; 2024, Devolped By <a href="https://softverses.com/" target="_blank">Softverses</a></p>
+                            </div>
+                        </div>
+                        <!-- <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                            <div class="footer-menu">
+                                <ul>
+                                    <li><a href="{% url 'home' %}">Home</a></li>
+                                    <li><a href="#">Terms</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                    <li><a href="#">Policy</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+    </section>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+          
+          document.getElementById("whatsapp-button").addEventListener("click", function () {
+                var phoneNumber = "+91 9747858495";
+                var message = "Hello, I'd like to get in touch with you!";
+                var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+                window.open(url, "_blank");
+            });
+    
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 'auto',
+                spaceBetween: 30,
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        </script>
+          </body>
+          </html>

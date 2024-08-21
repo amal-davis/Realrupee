@@ -1,0 +1,48 @@
+.card {
+    border-radius: 5px;
+    transition: box-shadow 0.3s;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    height: 100%; /* Ensure the card stretches to fit its content */
+}
+
+.card-body {
+    padding: 5px;
+}
+
+.card-img-top {
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+}
+
+.btn-custom {
+    background-color: #003300;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-custom:hover {
+    background-color: #003300;
+    color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 10px;
+    }
+    
+    .card-body {
+        padding: 5px;
+    }
+    
+    .btn-custom {
+        padding: 8px 16px;
+    }
+}
+ 
+

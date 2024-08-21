@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+
+    <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <title>Edit Property Page </title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+</head>
+
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase
+        }
+
+        .navbar .nav {
+            font-family: 'Open Sans', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 1.5rem;
+            padding: 10px;
+        }
+
+        .navbar-inverse {
+            background-color: #057405
+        }
+
+        .navbar-inverse .navbar-nav>.active>a:hover,
+        .navbar-inverse .navbar-nav>li>a:hover,
+        .navbar-inverse .navbar-nav>li>a:focus {
+            background-color: #044e04
+        }
+
+        .navbar-inverse .navbar-nav>.active>a,
+        .navbar-inverse .navbar-nav>.open>a,
+        .navbar-inverse .navbar-nav>.open>a,
+        .navbar-inverse .navbar-nav>.open>a:hover,
+        .navbar-inverse .navbar-nav>.open>a,
+        .navbar-inverse .navbar-nav>.open>a:hover,
+        .navbar-inverse .navbar-nav>.open>a:focus {
+            background-color: #003300
+        }
+
+        .dropdown-menu {
+            background-color: #006B00
+        }
+
+        .dropdown-menu>li>a:hover,
+        .dropdown-menu>li>a:focus {
+            background-color: #002200
+        }
+
+        .navbar-inverse {
+            background-image: none;
+        }
+
+        .dropdown-menu>li>a:hover,
+        .dropdown-menu>li>a:focus {
+            background-image: none;
+        }
+
+        .navbar-inverse {
+            border-color: #003300
+        }
+
+        .navbar-inverse .navbar-brand {
+            color: #FFFFFF
+        }
+
+        .navbar-inverse .navbar-brand:hover {
+            color: #FFCC00
+        }
+
+        .navbar-inverse .navbar-nav>li>a {
+            color: #FFFFFF
+        }
+
+        .navbar-inverse .navbar-nav>li>a:hover,
+        .navbar-inverse .navbar-nav>li>a:focus {
+            color: #FFCC00
+        }
+
+        .navbar-inverse .navbar-nav>.active>a,
+        .navbar-inverse .navbar-nav>.open>a,
+        .navbar-inverse .navbar-nav>.open>a:hover,
+        .navbar-inverse .navbar-nav>.open>a:focus {
+            color: #FFCC00
+        }
+
+        .navbar-inverse .navbar-nav>.active>a:hover,
+        .navbar-inverse .navbar-nav>.active>a:focus {
+            color: #FFCC00
+        }
+
+        .dropdown-menu>li>a {
+            color: #FFFFFF
+        }
+
+        .dropdown-menu>li>a:hover,
+        .dropdown-menu>li>a:focus {
+            color: #FFCC00
+        }
+
+        .navbar-inverse .navbar-nav>.dropdown>a .caret {
+            border-top-color: #FFFFFF
+        }
+
+        .navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+            border-top-color: #FFFFFF
+        }
+
+        .navbar-inverse .navbar-nav>.dropdown>a .caret {
+            border-bottom-color: #FFFFFF
+        }
+
+        .navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+            border-bottom-color: #FFFFFF
+        }
+
+        .whatsapp-icon {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    z-index: 9999; /* Ensure it appears above other content */
+}
+</style>
+<body>
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="./" class="navbar-brand">Real Rupees</a>
+            </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse" id="bs-example-navbar-collapse-1" role="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'property' %}">Property</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about_us' %}">About Us</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact_us' %}">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'test' %}">Testimonals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tel:+1234567890"><i class="fas fa-phone-alt"></i>9747858495</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <br><br><br><br><br>
+    
+    <div class="container" style="margin-top: 40px;">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <!-- Display existing values -->
+            <label for="images">Images:</label>
+            {% if content.images.all %}
+            {% for img in content.images.all %}
+            <img src="{{ img.image.url }}" alt="thumb" style="width: 100px; height: 100px;">
+            {% endfor %}
+            {% else %}
+            <span>No images</span>
+            {% endif %}
+            <input type="file" name="images" class="form-control" accept="image/*" multiple>
+            <br>
+            
+            <label for="heading">Heading:</label>
+            <input type="text" name="heading" class="form-control" value="{{ content.heading }}" required>
+            <br>
+            
+            <label for="subheading">Subheading:</label>
+            <input type="text" name="subheading" class="form-control" value="{{ content.subheading }}" required>
+            <br>
+        
+            <label for="property_id">Property Id:</label>
+            <input type="text" name="property_id" class="form-control" value="{{ content.property_id }}" required>
+            <br>
+            
+            <label for="paragraph">Paragraph:</label>
+            <textarea class="form-control" id="editor" name="paragraph" required>{{ content.paragraph|safe }}</textarea>
+            <br>
+            
+            <label for="youtube_url">YouTube URL:</label>
+            <input type="url" name="youtube_url" class="form-control" value="{{ content.youtube_url }}">
+            <br>
+            
+            <label for="google_map_link">Google Map Link:</label>
+            <input type="url" name="google_map_link" class="form-control" value="{{ content.google_map_link }}">
+            <br>
+            
+
+            
+            <label for="price">Price:</label>
+            <input type="text" name="price" class="form-control" value="{{ content.price }}">
+            <br>
+            
+            <label for="status">Status:</label>
+            <select class="form-control" name="status">
+                <option value="For Sale" {% if content.status == 'For Sale' %}selected{% endif %}>For Sale</option>
+                <option value="Sold" {% if content.status == 'Sold' %}selected{% endif %}>Sold</option>
+            </select>
+            <br>
+        
+            <label for="type">Type:</label>
+            <input type="text" name="type" class="form-control" value="{{ content.type }}">
+            <br>
+                <!-- State Dropdown -->
+    <label for="state">State:</label>
+    <select name="state_id" id="id_state" class="form-control">
+        {% for state in states %}
+            <option value="{{ state.id }}" {% if content.state_id == state.id %}selected{% endif %}>{{ state.name }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    
+    <!-- District Dropdown -->
+    <label for="district">District:</label>
+    <select name="district_id" id="id_district" class="form-control">
+        {% for district in districts %}
+            {% if district.state.id == content.state_id %}
+            <option value="{{ district.id }}" {% if content.district_id == district.id %}selected{% endif %}>{{ district.name }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <br>
+    
+    <!-- Locality Dropdown -->
+    <label for="locality">Locality:</label>
+    <select name="locality_id" id="id_locality" class="form-control">
+        {% for locality in localities %}
+            {% if locality.district.id == content.district_id %}
+            <option value="{{ locality.id }}" {% if content.locality_id == locality.id %}selected{% endif %}>{{ locality.name }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <br>
+        
+            <input type="submit" class="btn" style="color: #fff; background-color: #bd4419;" value="Save Changes">
+        </form>
+        
+    </div>
+    
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    
+    CKEDITOR.replace('editor');
+
+
+
+    document.getElementById("whatsapp-button").addEventListener("click", function () {
+          var phoneNumber = "+91 9747858495";
+          var message = "Hello, I'd like to get in touch with you!";
+          var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+          window.open(url, "_blank");
+      });
+
+      document.getElementById('editor').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            // Prevent the default behavior (line break) and insert a newline character
+            e.preventDefault();
+            const textarea = document.getElementById('editor');
+            const cursorPos = textarea.selectionStart;
+            const textBefore = textarea.value.substring(0, cursorPos);
+            const textAfter = textarea.value.substring(cursorPos);
+
+            textarea.value = textBefore + '\n' + textAfter;
+
+            // Move the cursor to the next line
+            textarea.setSelectionRange(cursorPos + 1, cursorPos + 1);
+        }
+    });
+  </script>
